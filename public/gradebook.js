@@ -29,6 +29,7 @@ function populateGradebook(data) {
     // This function will take the fetched grade data and populate the table
     console.log("Populating gradebook with data:", data);
     let tableElm = document.getElementById("Gradebook"); // Get the gradebook table element
+    if (Array.isArray(data)) {
         data.forEach(function(assignment){ // For each row of data we're passed in
             let row = document.createElement("tr"); // Create a table row element
             let columns = []; // Handy place to stick columns of information
@@ -48,11 +49,12 @@ function populateGradebook(data) {
             row.appendChild(columns.grade);
             // Add the row to the table itself to make the data visible
             tableElm.appendChild(row);
-     });
-}
+      });
+    } else {
+      console.warn("Data is not an array:", data);
+}}
 
-//TODO REMOVE THIS
-// Call the stubs to demonstrate the workflow
 const gradeData = fetchGradeData();
+//populateGradebook(gradeData);
 populateGradebook(gradeData);
 //END REMOVE
