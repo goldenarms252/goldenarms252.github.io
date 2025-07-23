@@ -56,5 +56,3 @@ function populateGradebook(data) {
 
 const gradeData = fetchGradeData();
 //populateGradebook(gradeData);
-populateGradebook(gradeData);
-//END REMOVE
